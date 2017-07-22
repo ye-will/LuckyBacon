@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>線上抽獎系統 by BaconBao</title>
+  <title>tap4fun 策划抽奖</title>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="author" content="BaconBao">
-	<meta name="description" content="點擊幾下就可以規劃獎項與名額，輕鬆快速的完成線上抽獎！">
-	<meta property="og:image" content="ogimage.jpg"/>  
+	<meta property="og:image" content="ogimage.jpg"/>
 	<link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
 	<link rel="stylesheet" href="lib/bootstrap-3.3.6.min.css">
 	<style>
@@ -22,7 +21,7 @@
 		padding-top: 5px;
 		width: 800px;
 		margin: 0 auto;
-		text-align: center;		
+		text-align: center;
 	}
 	#box {
 		width: 800px;
@@ -130,7 +129,7 @@
 	}
 	.pnw {
 		display: block;
-		font-size: 18px;
+		font-size: 24px;
 		font-weight: 500;
 		padding: 1px 0px 0px 15px;
 		color: #000;
@@ -141,7 +140,7 @@
 	$(document).ready(function(){
 
 		/*--===================
-			UI & Works before start. 
+			UI & Works before start.
 		=======================--*/
 		$('#results').hide();
 		$('#letsgo').fadeOut();
@@ -169,7 +168,7 @@
 		$('#restart').click(function(){ document.location.reload(); });
 
 		/*--===================
-			Works after start. 
+			Works after start.
 		=======================--*/
 		var temp_total_count = 0;
 		var candidates = [];
@@ -235,7 +234,7 @@
 
 			/*--- Print the Winners ---*/
 			for(var k=0; k<winner.length; k++){
-				$('#results').append('<span class="pn">獎項 #'+(k+1)+'</span>');
+				$('#results').append('<span class="pn"></span>');
 				for(var m=0; m<winner[k].length; m++){
 					$('#results').append('<span class="pnw">'+winner[k][m]+'</span>');
 				}
@@ -246,7 +245,7 @@
 			$('#footer').fadeOut(function(){
 				$('#results').fadeIn()
 			});
-			ga('send', 'pageview', 'showResult');
+			// ga('send', 'pageview', 'showResult');
 		});
 
 		/*--===========
@@ -277,7 +276,7 @@
 			candidates = [];
 			price_count = 0;
 			volume = [];
-			winner = [];			
+			winner = [];
 		}
 
 		function setClickBind(){
@@ -297,7 +296,7 @@
 <body>
 
 	<div id="box">
-		<div id="top">線上抽獎系統</div>
+		<div id="top">tap4fun 策划分享人抽取</div>
 		<div id="content">
 			<div class="left">
 				<textarea name="candidates" class="form-control" rows="12">Steve Jobs
@@ -312,39 +311,18 @@ Morris Chang
 Stan Shih</textarea>
 			</div>
 			<div class="right">
-				<button id="add_price" class="btn btn-circle btn-danger">+</button>
-				<div id="intro1">點此新增獎項與名額 →</div>
-				<div id="price_list">
-					<div class="priceBox"><span class="priceNumber">獎項 #1</span><button class="btn btn-default btn-sm decrease">-</button>抽出<span class="count">1</span>名<button class="btn btn-default btn-sm increase">+</button></div>
+				<div id="price_list" style="display: none;">
+					<div class="priceBox"><span class="priceNumber">下次分享人</span><button class="btn btn-default btn-sm decrease">-</button>抽出<span class="count">1</span>名<button class="btn btn-default btn-sm increase">+</button></div>
 				</div>
-				<button id="letsgo" class="btn btn-success">開始抽獎！</button>
+				<button id="letsgo" class="btn btn-success">开始</button>
 			</div>
 		</div>
-		<div id="footer">
-			Note.<br />
-			<span>1. <b style="color: #4285f4;">請將名單填入上方輸入框，並以換行做分隔。</b><br /></span>
-			<span>2. 抽獎順序為： 獎項#1 → 獎項#2 → ...... → 獎項#N。<br /></span>
-			<span>3. 每一輪獎項的名單皆會排除上一輪的中獎者。<br /></span>
-			<span>4. 亂數抽取算法採用 <a href="http://stackoverflow.com/a/2450976" target="_blank">The Fisher-Yates (aka Knuth) shuffle</a><br /></span>
-		</div>
+		<div id="footer"></div>
 		<div id="results">
-			<span id="candidates_count">123</span>
-			<button id="restart" class="btn btn-success">重新開始</button>
-			<div id="congrats">恭喜以下得獎者！</div>
+			<!-- <span id="candidates_count">123</span> -->
+			<button id="restart" class="btn btn-success">重新开始</button>
+			<div id="congrats">下次分享人:</div>
 		</div>
 	</div>
-	<div id="copyright">
-		<span>The tool made by <a href="" target="http://baconbao.github.io/Resume/timeline/">BaconBao Lin</a>. Source code on <a href="https://github.com/baconbao/LuckyBacon" target="_blank">GitHub</a></span>
-	</div>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-65191016-4', 'auto');
-	  ga('send', 'pageview', 'index');
-
-	</script>
 </body>
 </html>
